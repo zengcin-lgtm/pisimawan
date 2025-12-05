@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太巴塱國民小學附設幼兒園 | O pisimawan to kaemangay a wawa no Tafalong</title>
+    
+    <!-- Google Fonts: Noto Sans TC for Traditional Chinese -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icon Set (Lucide via Unpkg) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Config for Brand Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#D95C45',   /* Amis/Clay inspired red */
+                            green: '#4A7c59', /* Nature green */
+                            cream: '#F9F5F0', /* Background cream */
+                            dark: '#333333',
+                            light: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Hide scrollbar for gallery but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-brand-cream text-brand-dark font-sans leading-relaxed flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <!-- Logo & Title -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center gap-3">
+                        <!-- Icon Placeholder for Logo -->
+                        <div class="w-10 h-10 bg-brand-red rounded-full flex items-center justify-center text-white">
+                            <i data-lucide="sun" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <h1 class="font-bold text-lg md:text-xl text-brand-dark tracking-wide">太巴塱國小附設幼兒園</h1>
+                            <span class="text-xs text-brand-red font-medium tracking-wider hidden md:block">O pisimawan to kaemangay a wawa no Tafalong</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex md:items-center md:space-x-6">
+                    <a href="#home" class="text-gray-600 hover:text-brand-red font-medium transition">首頁</a>
+                    <a href="#about" class="text-gray-600 hover:text-brand-red font-medium transition">幼兒園簡介</a>
+                    <a href="#curriculum" class="text-gray-600 hover:text-brand-red font-medium transition">本位課程</a>
+                    <a href="#resources" class="text-gray-600 hover:text-brand-red font-medium transition">學習紀錄</a>
+                    <a href="#admissions" class="px-4 py-2 bg-brand-green text-white rounded-full hover:bg-green-800 transition shadow-sm">招生資訊</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-red p-2 focus:outline-none">
+                        <i data-lucide="menu" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1 shadow-lg">
+                <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-red hover:bg-orange-50">首頁</a>
+                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-red hover:bg-orange-50">幼兒園簡介</a>
+                <a href="#curriculum" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-red hover:bg-orange-50">本位課程</a>
+                <a href="#resources" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-red hover:bg-orange-50">影像資料庫</a>
+                <a href="#admissions" class="block px-3 py-3 rounded-md text-base font-medium text-brand-green hover:bg-green-50">招生資訊</a>
+                <a href="#" class="block px-3 py-3 rounded-md text-base font-medium text-gray-400">English</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-20 h-[60vh] min-h-[500px] flex items-center justify-center bg-brand-green overflow-hidden">
+        <!-- Background Pattern/Image Overlay -->
+        <div class="absolute inset-0 bg-black opacity-20 z-10"></div>
+        <div class="absolute inset-0 z-0">
+             <!-- Placeholder for a real hero image -->
+             <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+                  alt="School Playground" 
+                  class="w-full h-full object-cover">
+        </div>
+        
+        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
+            <span class="block text-brand-red bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase mb-4 w-max mx-auto shadow-lg">
+                O pisimawan to kaemangay a wawa no Tafalong
+            </span>
+            <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-md">
+                傳承文化，快樂成長<br>在太巴塱看見孩子的未來
+            </h2>
+            <p class="text-lg md:text-xl text-gray-100 mb-8 font-light drop-shadow">
+                以阿美族文化為底蘊，打造最適合幼兒探索的自然學習場域
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#admissions" class="px-8 py-3 bg-brand-red text-white rounded-lg font-bold hover:bg-red-700 transition shadow-lg transform hover:-translate-y-1">
+                    立即報名
+                </a>
+                <a href="#about" class="px-8 py-3 bg-white text-brand-green rounded-lg font-bold hover:bg-gray-100 transition shadow-lg transform hover:-translate-y-1">
+                    認識我們
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Tabs -->
+    <section id="about" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-brand-dark mb-4">幼兒園簡介</h2>
+            <div class="w-24 h-1 bg-brand-red mx-auto rounded-full"></div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10">
+            <button onclick="switchTab('history')" class="tab-btn px-6 py-2 rounded-full border-2 border-brand-green text-brand-green hover:bg-brand-green hover:text-white transition font-medium active-tab" id="btn-history">歷史發展</button>
+            <button onclick="switchTab('overview')" class="tab-btn px-6 py-2 rounded-full border-2 border-brand-green text-brand-green hover:bg-brand-green hover:text-white transition font-medium" id="btn-overview">園所概況</button>
+            <button onclick="switchTab('features')" class="tab-btn px-6 py-2 rounded-full border-2 border-brand-green text-brand-green hover:bg-brand-green hover:text-white transition font-medium" id="btn-features">教學特色</button>
+            <button onclick="switchTab('schedule')" class="tab-btn px-6 py-2 rounded-full border-2 border-brand-green text-brand-green hover:bg-brand-green hover:text-white transition font-medium" id="btn-schedule">一日作息</button>
+        </div>
+
+        <!-- Content Area -->
+        <div class="bg-white rounded-2xl shadow-xl p-6 md:p-10 min-h-[400px]">
+            
+            <!-- Tab: History -->
+            <div id="history" class="tab-content active">
+                <h3 class="text-2xl font-bold text-brand-green mb-6 flex items-center gap-2">
+                    <i data-lucide="history" class="w-6 h-6"></i> 歷史發展
+                </h3>
+                <div class="border-l-4 border-brand-red ml-2 pl-6 space-y-8">
+                    <div class="relative">
+                        <span class="absolute -left-[38px] top-1 w-5 h-5 bg-brand-red rounded-full border-4 border-white"></span>
+                        <h4 class="text-lg font-bold text-gray-800">民國 95 年 (2006) — 創立與緣起</h4>
+                        <p class="text-gray-600 mt-2">
+                            本園成立於白螃蟹的故鄉「太巴塱」，位於花蓮縣光復鄉東側。這片土地擁有豐富的自然與阿美族文化底蘊，我們致力於在此提供幼兒優質的成長環境。
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute -left-[38px] top-1 w-5 h-5 bg-brand-red rounded-full border-4 border-white"></span>
+                        <h4 class="text-lg font-bold text-gray-800">在地文化 × 多元學習</h4>
+                        <p class="text-gray-600 mt-2">
+                            課程設計強調在地文化結合多元學習。透過農耕、手作、故事與遊戲，讓孩子親身體驗文化內涵；同時融入基礎族語教學，讓語言自然成為生活的一部分。
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute -left-[38px] top-1 w-5 h-5 bg-brand-red rounded-full border-4 border-white"></span>
+                        <h4 class="text-lg font-bold text-gray-800">民國 113 年 (2024) — 沉浸式族語教學</h4>
+                        <p class="text-gray-600 mt-2">
+                            正式加入原住民族委員會「沉浸式族語教學幼兒園」行列。我們全方位營造族語使用環境，讓孩子在生活與遊戲中自然沉浸，從小建立語言認同與文化自信。
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute -left-[38px] top-1 w-5 h-5 bg-brand-red rounded-full border-4 border-white"></span>
+                        <h4 class="text-lg font-bold text-gray-800">走進社區與未來展望</h4>
+                        <p class="text-gray-600 mt-2">
+                            我們是孩子與部落連結的橋樑，透過參與 Ilisin 祭典、部落走讀與老幼共學，讓文化根植於心。園內設有語文、積木、文化等多樣探索區，陪伴孩子在太巴塱的土地上快樂茁壯。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Overview -->
+            <div id="overview" class="tab-content">
+                <h3 class="text-2xl font-bold text-brand-green mb-6 flex items-center gap-2">
+                    <i data-lucide="home" class="w-6 h-6"></i> 園所概況
+                </h3>
+                
+                <!-- 1. 環境簡介 (保留簡短版) -->
+                <p class="text-gray-600 mb-8 leading-relaxed border-l-4 border-brand-green pl-4">
+                    太巴塱國小附設幼兒園位於花蓮縣光復鄉，擁有寬敞的戶外活動空間與安全衛生的學習環境。我們致力於結合社區資源，打造一個讓孩子能自然奔跑、快樂學習的成長基地。
+                </p>
+
+                <!-- 2. 幼兒概況 (數據化呈現) -->
+                <div class="mb-10 bg-orange-50 rounded-xl p-6">
+                    <h4 class="text-lg font-bold text-brand-dark mb-4 flex items-center gap-2">
+                        <i data-lucide="users" class="w-5 h-5 text-brand-red"></i> 幼兒概況 (114學年度)
+                    </h4>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <span class="block text-gray-500 text-xs mb-1">總人數</span>
+                            <span class="text-2xl font-bold text-brand-red">21 <span class="text-sm text-gray-400">人</span></span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <span class="block text-gray-500 text-xs mb-1">大班</span>
+                            <span class="text-xl font-bold text-gray-700">8 <span class="text-sm text-gray-400">人</span></span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <span class="block text-gray-500 text-xs mb-1">中班</span>
+                            <span class="text-xl font-bold text-gray-700">9 <span class="text-sm text-gray-400">人</span></span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <span class="block text-gray-500 text-xs mb-1">小班</span>
+                            <span class="text-xl font-bold text-gray-700">4 <span class="text-sm text-gray-400">人</span></span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-3 text-center">班級名稱：<span class="font-bold text-brand-red">螃蟹班 (混齡教學)</span></p>
+                </div>
+
+                <!-- 3. 師資概況 (卡片式設計) -->
+                <div class="mb-10">
+                    <h4 class="text-lg font-bold text-brand-dark mb-6 flex items-center gap-2">
+                        <i data-lucide="graduation-cap" class="w-5 h-5 text-brand-green"></i> 專業師資團隊
+                    </h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- 校長 -->
+                        <div class="bg-white border border-gray-100 p-5 rounded-xl shadow-sm flex gap-4 items-start">
+                            <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0 overflow-hidden">
+                                <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcUraT0ULZoOCAj5WfJVQE8OW9V77vv2-D6qVGmFF5RcAD1KO4Vf5ylOxPT4ksv2Pd4-c46okMHo7LVblimAUFAlomhONPbou34FbzKzoVOjwW6Zp07me1LNW3jKMt55sZeO0umuJMVMUNpJu3TFpCFiA4k5WTPCJ1epB53aBq51EtiKAyzdg0Wo2C2R-X64FEIo7Th0x3ok-bSebHnUZ5LvqGDXp0MPo5LxaQ=w200" alt="校長" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=校長&background=random'">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg text-brand-dark">劉從義 <span class="text-sm font-normal text-gray-500">校長</span></h5>
+                                <p class="text-xs text-gray-400 mb-2">國立臺東大學教育研究所碩士</p>
+                                <p class="text-sm text-gray-600 italic">"許孩子一次豐盈美好的童年經驗。"</p>
+                            </div>
+                        </div>
+
+                        <!-- 主任 -->
+                        <div class="bg-white border border-gray-100 p-5 rounded-xl shadow-sm flex gap-4 items-start">
+                            <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0 overflow-hidden">
+                                <img src="https://lh3.googleusercontent.com/sitesv/AAzXCke77IUUkZ0r5Q37H_e9JIMdSQXiqpoyFnW4CEjTrmMogRO1eOISvwPY-xvPuuNfdyknRoYpbEiOfRuHj_n0CkrhDhMxi6IS70_EJaVOk3idMNpt1VqUYMpzLmQkYl0ootIlme3YSGCenr_aPbimJD5y_u2sHqogE3ggvLcN8iLON2CaWfy7TDE8s4qGiVA5OAos6yqpiWgAQ5Ye8kTNFxVfc5R81lBucqhsY80=w200" alt="主任" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Canglah&background=random'">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg text-brand-dark">林筱庭 <span class="text-brand-red text-sm">Canglah</span> <span class="text-sm font-normal text-gray-500">主任</span></h5>
+                                <p class="text-xs text-gray-400 mb-1">幼兒園教師證書 / 族語認證中級</p>
+                                <span class="inline-block px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded-full">泰雅族</span>
+                            </div>
+                        </div>
+
+                        <!-- 教保員 1 -->
+                        <div class="bg-white border border-gray-100 p-5 rounded-xl shadow-sm flex gap-4 items-start">
+                            <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0 overflow-hidden">
+                                <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkdWBt5EgBeoRZHs1qF2Ap8IXoF7U-lr0tA9O91G91aCkyYGK993L_Ano-l7jic1NrTH-84qc0NfW3rXZWqBOuATObadO3B6NNiEIKJIocb3ygoY8s5flABEJWGYMm6gmM0jrsMwHTKSu1e1nFFnAZaTZ1QcnLO_BMdDfQrxDjQ1dEAem0HUZ64TrS-wdMivdyXBRwNzjW1q-SkTjeIWwr-GBNEhjpG520Z-s8w=w200" alt="老師" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Nikar&background=random'">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg text-brand-dark">洪珮瑜 <span class="text-brand-red text-sm">Nikar</span> <span class="text-sm font-normal text-gray-500">教保員</span></h5>
+                                <p class="text-xs text-gray-400 mb-1">國立東華大學幼兒教育學系</p>
+                                <p class="text-xs text-gray-500">族語認證中級-秀姑巒阿美語</p>
+                            </div>
+                        </div>
+
+                        <!-- 教保員 2 -->
+                        <div class="bg-white border border-gray-100 p-5 rounded-xl shadow-sm flex gap-4 items-start">
+                            <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0 overflow-hidden">
+                                <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkeL6yCk2Bprm5uXhuUUTWEktVcgabzmlsdmKWhH6ZxR_7d1q4MasPXENqM1hYpxMOLJDLBFRlswzJUVM3KmjVVTAUgHhzB2YXQ02Hm6VOMHP3SJHLPsRV9zQHf4mfoy5X3wuRAXe_je74t7352c_5IecgKeK6F_4DpvYL1x1aizV-Rl1wKRuAOZonK8TiVu_0OEstVc40qK3kqIT9tmAEFO1-wTaeSMqyMk1pY=w200" alt="老師" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Panay&background=random'">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg text-brand-dark">盧貴穗 <span class="text-brand-red text-sm">Panay</span> <span class="text-sm font-normal text-gray-500">教保員</span></h5>
+                                <p class="text-xs text-gray-400 mb-1">國立花蓮師範學院幼兒教育學系</p>
+                                <p class="text-xs text-gray-500">專業證書：幼稚園教師證書</p>
+                            </div>
+                        </div>
+
+                        <!-- 族語老師 -->
+                        <div class="bg-white border border-gray-100 p-5 rounded-xl shadow-sm flex gap-4 items-start md:col-span-2">
+                            <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0 overflow-hidden">
+                                <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkf0JmX16O7GXA82aRyfR1wf5w1PP3wwoRLlZwhnbOP70a_-AAYXVLsRZPeLefNJv6hQscVBtfv8Dxiw-xWZml8oiEmW6vqlg7TEJDmH65ltXeqDsXVcUmU36zl407Z2g6htP6E-1fTC02v1adUtGhP_xna7ufKcypXBsk1MggVzMxDlE582OFVkhxfKXf1wMvXQYBWGCnP_bii8QG5-71i08CWxqubB6ADHa0w=w200" alt="老師" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Foday&background=random'">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg text-brand-dark">Foday Kaʼti <span class="text-sm font-normal text-gray-500">族語教保員</span></h5>
+                                <p class="text-xs text-gray-400 mb-1">淡江大學教育科技學系數位學習碩士在職專班</p>
+                                <p class="text-xs text-gray-500 mb-1">族語認證中高級-秀姑巒阿美語 / 國民小學教學支援老師認證</p>
+                                <span class="inline-block px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded-full">阿美族</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. 推動小組與志工 (列表式) -->
+                <div class="bg-brand-green/5 rounded-xl p-6">
+                    <h4 class="text-lg font-bold text-brand-green mb-4 flex items-center gap-2">
+                        <i data-lucide="heart-handshake" class="w-5 h-5"></i> 沉浸式族語教學與社區資源
+                    </h4>
+                    <div class="text-sm text-gray-600 space-y-2">
+                        <p><span class="font-bold text-gray-700">推動小組：</span>劉從義(召集人)、林筱庭(副召集人)、Kating Mulas、Moli Kaʼti、蕭明山、楊秀梅、鄭家諭。</p>
+                        <p><span class="font-bold text-gray-700">協力夥伴：</span>Liso^so'你說說工作室、Pising彼心書店、太巴塱社區營造協會、太巴塱文化健康站。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Features -->
+            <div id="features" class="tab-content">
+                <h3 class="text-2xl font-bold text-brand-green mb-6 flex items-center gap-2">
+                    <i data-lucide="star" class="w-6 h-6"></i> 教學特色
+                </h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-orange-50 p-6 rounded-xl hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-orange-200 rounded-full flex items-center justify-center text-brand-red mb-4">
+                            <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">文化傳承</h4>
+                        <p class="text-gray-600 text-sm">透過歌謠、舞蹈與傳統工藝，讓孩子從小認識太巴塱部落文化。</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-xl hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center text-brand-green mb-4">
+                            <i data-lucide="trees" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">自然生態</h4>
+                        <p class="text-gray-600 text-sm">食農教育與戶外探索，培養孩子愛護土地、尊重生命的情操。</p>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-xl hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center text-blue-600 mb-4">
+                            <i data-lucide="book-open" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">主題教學</h4>
+                        <p class="text-gray-600 text-sm">以幼兒為中心的統整性課程，鼓勵孩子主動發問、動手操作。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Schedule -->
+            <div id="schedule" class="tab-content">
+                <h3 class="text-2xl font-bold text-brand-green mb-6 flex items-center gap-2">
+                    <i data-lucide="clock" class="w-6 h-6"></i> 一日作息
+                </h3>
+                <div class="overflow-x-auto mb-4">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100 text-gray-700 text-sm uppercase tracking-wider">
+                                <th class="p-4 rounded-tl-lg min-w-[140px]">時間</th>
+                                <th class="p-4 rounded-tr-lg">活動內容</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">07:40 - 08:00</td>
+                                <td class="p-4">幼兒入園、簽到任務</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">08:00 - 09:00</td>
+                                <td class="p-4">學習區探索</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">09:00 - 09:15</td>
+                                <td class="p-4">點名遊戲</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">09:15 - 09:45</td>
+                                <td class="p-4">早點心時間</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">09:45 - 10:00</td>
+                                <td class="p-4">轉銜活動</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">10:00 - 10:50</td>
+                                <td class="p-4">出汗性大肌肉活動</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">10:50 - 11:15</td>
+                                <td class="p-4">上廁所、靜心時間</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">11:15 - 11:45</td>
+                                <td class="p-4">主題教學</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">12:00 - 12:30</td>
+                                <td class="p-4">午餐時間</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">12:30 - 12:45</td>
+                                <td class="p-4">潔牙</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">12:45 - 13:00</td>
+                                <td class="p-4">轉銜活動</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">13:00 - 14:30</td>
+                                <td class="p-4">午休時間</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">14:30 - 14:50</td>
+                                <td class="p-4">收拾整理、上廁所</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">14:50 - 15:20</td>
+                                <td class="p-4">下午點心</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">15:20 - 15:40</td>
+                                <td class="p-4 text-sm md:text-base">
+                                    <span class="block mb-1">星期一：跳舞時間</span>
+                                    <span class="block mb-1">星期二：族語時間</span>
+                                    <span class="block mb-1">星期三：宣導活動</span>
+                                    <span class="block mb-1">星期四：族語遊戲</span>
+                                    <span class="block">星期五：電影時間</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">15:40 - 16:00</td>
+                                <td class="p-4">收拾整理 快樂回家</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-bold text-brand-red">16:00 - 16:30</td>
+                                <td class="p-4">課後延長照顧</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-sm text-gray-500 italic text-right">* 註：一日作息依當日活動安排為主</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section id="curriculum" class="bg-brand-green/10 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-brand-dark mb-6">本位課程</h2>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        我們的課程設計緊扣「太巴塱部落」在地特色，依循季節變化與部落祭儀，發展出獨特的學習主題。
+                    </p>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-brand-green">
+                            <h4 class="font-bold text-brand-green">春季：播種與生命</h4>
+                            <p class="text-sm text-gray-600">認識野菜、參與播種祭，感受生命的萌芽。</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-brand-red">
+                            <h4 class="font-bold text-brand-red">夏季：熱情與豐收</h4>
+                            <p class="text-sm text-gray-600">認識部落祭儀 (Ilisin)、學習傳統歌舞。</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-yellow-500">
+                            <h4 class="font-bold text-yellow-600">秋季：感恩與收藏</h4>
+                            <p class="text-sm text-gray-600">陶藝製作、認識傳統器具、感恩土地。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 grid grid-cols-2 gap-4">
+                     <img src="https://images.unsplash.com/photo-1596464716127-f9a0859b4bce?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" class="rounded-lg shadow-lg transform translate-y-4" alt="Activity 1">
+                     <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" class="rounded-lg shadow-lg" alt="Activity 2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources / Video Links -->
+    <section id="resources" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-brand-dark mb-8">教學影像資料庫</h2>
+        <p class="text-gray-600 mb-10 max-w-2xl mx-auto">記錄孩子們的成長點滴，歡迎家長透過連結觀看更多精彩活動紀錄。</p>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Video Card Placeholder -->
+            <a href="https://sites.google.com/go.edu.tw/tafalong-vids" target="_blank" class="group block bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+                <div class="h-48 bg-gray-200 relative flex items-center justify-center group-hover:bg-gray-300 transition">
+                    <i data-lucide="play-circle" class="w-16 h-16 text-brand-red opacity-80 group-hover:scale-110 transition"></i>
+                </div>
+                <div class="p-6 text-left">
+                    <h3 class="font-bold text-lg mb-2 group-hover:text-brand-red transition">前往影像資料庫</h3>
+                    <p class="text-gray-500 text-sm">觀看更多活動影片與照片</p>
+                </div>
+            </a>
+            
+             <!-- External Link Placeholder -->
+             <a href="https://www.youtube.com/@foday_kati" target="_blank" class="group block bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+                <div class="h-48 bg-gray-200 relative flex items-center justify-center group-hover:bg-gray-300 transition">
+                    <i data-lucide="youtube" class="w-16 h-16 text-red-600 opacity-80 group-hover:scale-110 transition"></i>
+                </div>
+                <div class="p-6 text-left">
+                    <h3 class="font-bold text-lg mb-2 group-hover:text-red-600 transition">YouTube 頻道</h3>
+                    <p class="text-gray-500 text-sm">訂閱我們的頻道，不錯過任何動態</p>
+                </div>
+            </a>
+
+            <!-- Social Media Link -->
+            <a href="https://www.facebook.com/pisimawan.tafalong/" target="_blank" class="group block bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+                <div class="h-48 bg-gray-200 relative flex items-center justify-center group-hover:bg-gray-300 transition">
+                    <i data-lucide="facebook" class="w-16 h-16 text-blue-600 opacity-80 group-hover:scale-110 transition"></i>
+                </div>
+                <div class="p-6 text-left">
+                    <h3 class="font-bold text-lg mb-2 group-hover:text-blue-600 transition">Facebook 粉絲專頁</h3>
+                    <p class="text-gray-500 text-sm">按讚追蹤，即時掌握校園資訊</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Admissions Section -->
+    <section id="admissions" class="bg-brand-red py-16 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6">招生資訊</h2>
+            <p class="text-xl opacity-90 mb-8">歡迎加入太巴塱大家庭！我們期待與您和孩子相見。</p>
+            <div class="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 inline-block w-full max-w-2xl">
+                <div class="grid md:grid-cols-2 gap-6 text-left">
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 border-b border-white/30 pb-2">聯絡方式</h4>
+                        <p class="mb-2 flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> (03) 870-1134 轉 16</p>
+                        <p class="mb-2 flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> tafalongwawa@gmail.com</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 border-b border-white/30 pb-2">報名連結</h4>
+                        <a href="https://kid-online.hlc.edu.tw/" target="_blank" class="inline-flex items-center gap-2 bg-white text-brand-red font-bold px-6 py-2 rounded-lg hover:bg-gray-100 transition w-full justify-center">
+                            花蓮縣公立幼兒園招生網 <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
+            <div>
+                <h5 class="text-white font-bold text-lg mb-4">太巴塱國民小學附設幼兒園</h5>
+                <p class="text-sm mb-4">O pisimawan to kaemangay a wawa no Tafalong</p>
+                <div class="flex space-x-4">
+                    <a href="https://www.facebook.com/pisimawan.tafalong/" class="hover:text-white transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    <a href="https://www.instagram.com/tafalong_pisimawan/" class="hover:text-white transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="https://www.youtube.com/@foday_kati" class="hover:text-white transition"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+            <div>
+                <h5 class="text-white font-bold text-lg mb-4">快速連結</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#about" class="hover:text-white transition">關於我們</a></li>
+                    <li><a href="#curriculum" class="hover:text-white transition">本位課程</a></li>
+                    <li><a href="https://kid-online.hlc.edu.tw/" target="_blank" class="hover:text-white transition">招生登記</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-bold text-lg mb-4">聯絡資訊</h5>
+                <ul class="space-y-2 text-sm">
+                    <li class="flex items-start gap-2">
+                        <i data-lucide="map-pin" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                        <span>976003 花蓮縣光復鄉中正路二段23號</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="clock" class="w-5 h-5 flex-shrink-0"></i>
+                        <span>週一至週五 08:00 - 16:30</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-10 pt-6 text-center text-xs">
+            <p>&copy; 2025 太巴塱國民小學附設幼兒園. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active styles from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(button => {
+                button.classList.remove('bg-brand-green', 'text-white');
+                button.classList.add('text-brand-green');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+
+            // Add active styles to selected button
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('text-brand-green');
+            activeBtn.classList.add('bg-brand-green', 'text-white');
+        }
+
+        // Initialize first tab state style
+        document.getElementById('btn-history').classList.add('bg-brand-green', 'text-white');
+        document.getElementById('btn-history').classList.remove('text-brand-green');
+
+        // Smooth Scroll handling for anchor links (offset for fixed header)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.classList.add('hidden'); // Close mobile menu if open
+                
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
